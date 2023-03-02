@@ -1,0 +1,240 @@
+{
+    "courses": [
+      {
+        "title": "math",
+        "subtopic": "surds",
+        "description": "Surds and Indices",
+        "teachersname": "Francie Rowa",
+        "video": "https://www.youtube.com/watch?v=6xQCumDHOFA",
+        "height": 600,
+        "width": 400,
+        "student": [
+          {
+            "student_id": 1,
+            "name": "Lucy"
+          },
+          {
+            "student_id": 2,
+            "name": "Lucy"
+          },
+          {
+            "student_id": 3,
+            "name": "Lucy"
+          }
+        ],
+        "rating": 4,
+        "id": 1
+      },
+      {
+        "title": "Physics",
+        "subtopic": "Speed",
+        "description": "Calculate speed",
+        "teachersname": "Francie Rowa",
+        "video": "https://www.youtube.com/watch?v=6xQCumDHOFA",
+        "height": 600,
+        "width": 400,
+        "student": [
+          {
+            "student_id": 1,
+            "name": "Lucy"
+          },
+          {
+            "student_id": 2,
+            "name": "Lucy"
+          },
+          {
+            "student_id": 3,
+            "name": "Lucy"
+          }
+        ],
+        "rating": 4,
+        "id": 2
+      },
+      {
+        "title": "Chemistry",
+        "subtopic": "Organic Chemistry",
+        "description": "how to test ph",
+        "teachersname": "Francie Rowa",
+        "video": "https://www.youtube.com/watch?v=6xQCumDHOFA",
+        "height": 600,
+        "width": 400,
+        "student": [
+          {
+            "student_id": 1,
+            "name": "Lucy"
+          },
+          {
+            "student_id": 2,
+            "name": "Lucy"
+          },
+          {
+            "student_id": 3,
+            "name": "Lucy"
+          }
+        ],
+        "rating": 4,
+        "id": 3
+      },
+      {
+        "title": "math",
+        "subtopic": "surds",
+        "description": "Surds and Indices",
+        "teachersname": "Francie Rowa",
+        "video": "https://www.youtube.com/watch?v=6xQCumDHOFA",
+        "height": 600,
+        "width": 400,
+        "student": [
+          {
+            "student_id": 1,
+            "name": "Lucy"
+          },
+          {
+            "student_id": 2,
+            "name": "Lucy"
+          },
+          {
+            "student_id": 3,
+            "name": "Lucy"
+          }
+        ],
+        "rating": 4,
+        "id": 4
+      },
+      {
+        "title": "math",
+        "subtopic": "",
+        "teachersname": "Your Name",
+        "description": "",
+        "link": "",
+        "id": 5
+      },
+      {
+        "title": "chemistry",
+        "subtopic": "lab work",
+        "teachersname": "Your Name",
+        "description": "litmus test",
+        "link": "https://www.youtube.com/watch?v=KkQATIXBY5w",
+        "id": 6
+      },
+      {
+        "title": "Chemistry",
+        "description": "moringa school assignments",
+        "link": "https://www.youtube.com/watch?v=Q7DlDTYkJRw",
+        "subtopic": "lab work",
+        "teachersname": "Hamida",
+        "id": 7
+      },
+      {
+        "course": "Biology",
+        "description": "basketBall",
+        "videoLink": "https://www.youtube.com/watch?v=Q7DlDTYkJRw",
+        "subtopic": "zoology",
+        "teachersname": "Hamida",
+        "id": 8
+      },
+      {
+        "course": "Chemistry",
+        "description": "school fess",
+        "videoLink": "https://www.youtube.com/watch?v=Q7DlDTYkJRw",
+        "subtopic": "bible",
+        "teachersname": "Lucy",
+        "id": 9
+      },
+      {
+        "title": "Chemistry",
+        "description": "basketBall",
+        "link": "https://www.youtube.com/watch?v=Q7DlDTYkJRw",
+        "subtopic": "zoology",
+        "teachersname": "Lucy",
+        "id": 10
+      },
+      {
+        "title": "Chemistry",
+        "description": "basketBall",
+        "link": "https://www.youtube.com/watch?v=Q7DlDTYkJRw",
+        "subtopic": "zoology",
+        "teachersname": "Lucy",
+        "id": 11
+      },
+      {
+        "title": "Chemistry",
+        "description": "basketBall",
+        "link": "https://www.youtube.com/watch?v=Q7DlDTYkJRw",
+        "subtopic": "zoology",
+        "teachersname": "Lucy",
+        "id": 12
+      },
+      {
+        "course": "",
+        "description": "",
+        "videoLink": "",
+        "subtopic": "",
+        "teachersname": "",
+        "id": 13
+      },
+      {
+        "title": "",
+        "description": "",
+        "link": "",
+        "subtopic": "",
+        "teachersname": "",
+        "id": 14
+      },
+      {
+        "title": "Chemistry",
+        "description": "basketBall",
+        "link": "https://www.youtube.com/watch?v=Q7DlDTYkJRw",
+        "subtopic": "kingkong",
+        "teachersname": "Bin",
+        "id": 15
+      },
+      {
+        "title": "Chemistry",
+        "description": "basketBall",
+        "link": "https://www.youtube.com/watch?v=Q7DlDTYkJRw",
+        "subtopic": "kingkong",
+        "teachersname": "Bin",
+        "id": 16
+      },
+      {
+        "title": "",
+        "description": "",
+        "link": "",
+        "subtopic": "",
+        "teachersname": "",
+        "id": 17
+      },
+      {
+        "title": "Physics",
+        "description": "moringa school assignments",
+        "link": "https://www.youtube.com/watch?v=Q7DlDTYkJRw",
+        "subtopic": "lab work",
+        "teachersname": "Bin",
+        "id": 18
+      },
+      {
+        "title": "Physics",
+        "description": "moringa school assignments",
+        "link": "https://www.youtube.com/watch?v=Q7DlDTYkJRw",
+        "subtopic": "lab work",
+        "teachersname": "Bin",
+        "id": 19
+      },
+      {
+        "title": "Physics",
+        "description": "moringa school assignments",
+        "link": "https://www.youtube.com/watch?v=Q7DlDTYkJRw",
+        "subtopic": "lab work",
+        "teachersname": "Lucy",
+        "id": 20
+      },
+      {
+        "course": "Chemistry",
+        "description": "moringa school assignments",
+        "videoLink": "https://www.youtube.com/watch?v=Q7DlDTYkJRw",
+        "subtopic": "lab work",
+        "teachersname": "Lucy",
+        "id": 21
+      }
+    ]
+  }
