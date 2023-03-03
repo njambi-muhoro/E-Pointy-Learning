@@ -72,6 +72,11 @@ function NavBar({ isLoggedIn, onLogout }) {
               </Link>
             </div>
 
+            <div className="nav-item me-lg-4">
+              <Link to="/signup" style={{ color: "white" }}>
+                Sign Up
+              </Link>
+            </div>
             {/* select dropdown to allow users to select their user type (i.e., "student" or "teacher").
           Based on the selected user type and the isLoggedIn state, we render different links for
           students and teachers. If the user is not logged in, we render a "Login" link. If the user

@@ -4,6 +4,7 @@ import Teachers from "./components/Teacher";
 import Courses from "./components/Courses";
 import Home from "./components/Home";
 import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 
 import { useState, useEffect } from "react";
 
@@ -50,6 +51,7 @@ function App() {
         <Route path="/teachers" element={<Teachers />} />
 
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp/>} />
       </Routes>
       {/* <FetchCourses likedCourses={likedCourses} addCourse={addCourse} /> */}
       

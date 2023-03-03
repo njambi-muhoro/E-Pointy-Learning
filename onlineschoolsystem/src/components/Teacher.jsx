@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function Teacher() {
   const [selectedCourse, setSelectedCourse] = useState("");
   const [description, setDescription] = useState("");
-  const [videoLink, setVideoLink] = useState("");
+  const [videos_link, setVideoLink] = useState("");
   const [subtopic, setSubtopic] = useState("");
   const [teacherName, setTeacherName] = useState("");
 
@@ -33,12 +33,12 @@ function Teacher() {
     const newCourse = {
       course: selectedCourse,
       description: description,
-      videoLink: videoLink,
+      videos_link: videos_link,
       subtopic: subtopic,
       teachersname: teacherName,
     };
 
-    fetch("http://localhost:2870/courses", {
+    fetch("http://localhost:9292/courses", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -91,7 +91,7 @@ function Teacher() {
             type="text"
             className="form-control"
             id="videoLink"
-            value={videoLink}
+            value={videos_link}
             onChange={handleVideoLinkChange}
           />
         </div>

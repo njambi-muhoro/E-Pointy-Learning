@@ -1,57 +1,62 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function SignUp({ teachersignup, studentsignup }) {
   const [userType, setUserType] = useState("student");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
-  const navigate = useNavigate();
 
- 
-
-  const handleLogin = () => {
-    // the fetch request will return only users that match all three parameters,
-    //  and the matchingUsers variable will be an array of users that match. The 
-    //  if statement will check if there are any matching users, and if so, log in the
-    //   first matching user. If there are no matching users, the else statement will 
-    //   trigger the "Invalid login details" alert
-
-
-
-    fetch(`http://localhost:9292/${userType}s?email=${email}&password=${password}&name=${name}`)
-      .then(response => response.json())
-      .then(data => {
-        const matchingUsers = data.filter(user => user.email === email && user.password === password && user.name === name);
-        if (matchingUsers.length > 0) {
-          setLoggedIn(true);
-          if (userType === "teacher") {
-            navigate("/teachers");
-          } else if (userType === "student") {
-            navigate("/students");
-          }
-        } else {
-          alert("Invalid login details");
-        }
-      })
-      .catch(error => {
-        console.error(error);
-        alert("An error occurred while logging in");
-      });
+  // work on a function to handle change
+  const handlesetUserType = (e) => {
+    setUserType(e.target.value);
   };
-  
-  
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
+
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleLogin();
+  
+    const newUser = {
+      name: name,
+      password: password,
+      email: email,
+      userType: userType,
+    };
+  
+    fetch('http://localhost:9292/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newUser),
+    })
+      .then(response => {
+        if (userType === "teacher") {
+          navigate("/login");
+        } else if (userType === "student") {
+          navigate("/login");
+        }
+      })
+      .catch(error => console.log(error));
   };
-
+  
   return (
     <div>
       <div>
-        <h1>Log into your account!</h1>
+        <h1>Welcome, To Pointy E-Learning!</h1>
       </div>
       <div>
         <form
@@ -72,12 +77,7 @@ function Login() {
             }}
           >
             <label style={{ marginRight: "10px" }}>Name:</label>
-            <input
-              type="text"
-              name="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
+            <input type="text" name="name" value={name} onChange={handleName} />
           </div>
           {userType === "student" && (
             <div
@@ -93,7 +93,7 @@ function Login() {
                 type="email"
                 name="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleEmail}
               />
             </div>
           )}
@@ -110,7 +110,7 @@ function Login() {
               type="password"
               name="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={handlePassword}
             />
           </div>
           <div
@@ -125,7 +125,7 @@ function Login() {
               Login As:
               <select
                 value={userType}
-                onChange={(e) => setUserType(e.target.value)}
+                onChange={handlesetUserType}
                 style={{ marginLeft: "5px" }}
               >
                 <option value="student">Student</option>
@@ -141,5 +141,4 @@ function Login() {
     </div>
   );
 }
-
-export default Login;
+export default SignUp;

@@ -16,6 +16,10 @@ gem "sinatra-activerecord"
 # https://github.com/rack/rack-contrib
 gem "rack-contrib", "~> 2.3"
 
+gem 'actionpack', '~> 6.0'
+
+
+
 # Run common tasks from the command line
 # https://github.com/ruby/rake
 gem "rake"
