@@ -1,52 +1,31 @@
 # Create some courses
-Course.create(title: "Mathematics for Beginners", 
-    videos_link: "https://www.youtube.com/playlist?list=PL0-GT3co4r2y2YErbmuJw2L5tW4Ew2O5B", 
-    subtopic: "Algebra", 
-    teachersname: "John Doe", 
-    description: "This course is an introduction to algebra, covering basic concepts and problem-solving techniques.")
+teachers = []
+5.times do |i|
+  teacher = Teacher.create(name: "Teacher #{i+1}", email: "teacher#{i+1}@example.com", password: 'password')
+  teachers << teacher
+end
 
-Course.create(title: "Introduction to Programming", 
-    videos_link: "https://www.youtube.com/playlist?list=PL0-GT3co4r2y2YErbmuJw2L5tW4Ew2O5B", 
-    subtopic: "Python", 
-    teachersname: "Jane Smith", 
-    description: "This course provides an overview of computer programming using Python, covering variables, loops, functions, and other fundamental concepts.")
+# Creating students
+students = []
+10.times do |i|
+  student = Student.create(name: "Student #{i+1}", email: "student#{i+1}@example.com", password: 'password')
+  students << student
+end
 
-Course.create(title: "English Literature", 
-    videos_link: "https://www.youtube.com/playlist?list=PL0-GT3co4r2y2YErbmuJw2L5tW4Ew2O5B", 
-    subtopic: "Shakespeare", 
-    teachersname: "Mark Johnson", 
-    description: "This course explores the works of William Shakespeare, including his plays and sonnets, and provides insights into his writing style and historical context.")
+# Creating courses
+courses = []
+10.times do |i|
+  teacher = teachers.sample
+  course = Course.create(title: "Course #{i+1}", videos_link: "https://www.youtube.com/playlist?list=PL0-GT3co4r2y2YErbmuJw2L5tW4Ew2O5B", teachersname: teacher.name, description: "Course #{i+1} description", subtopic: "Subtopic #{i+1}", teacher_id: teacher.id)
+  courses << course
+end
 
-    # Seed file to create students
-
-# Create 3 students with name, email, and password
-student1 = Student.create!(
-    name: "John Doe",
-    email: "john.doe@example.com",
-    password: "password1"
-  )
-  
-  student2 = Student.create!(
-    name: "Jane Smith",
-    email: "jane.smith@example.com",
-    password: "password2"
-  )
-  
-  student3 = Student.create!(
-    name: "Bob Johnson",
-    email: "bob.johnson@example.com",
-    password: "password3"
-  )
-  
-teacher1 = Teacher.create(name: "John Doe", password: "password1", email: "john.doe@example.com")
-teacher2 = Teacher.create(name: "Jane Smith", password: "password2", email: "jane.smith@example.com")
-teacher3 = Teacher.create(name: "Bob Johnson", password: "password3", email: "bob.johnson@example.com")
-
-User.create!(teacher_id: teacher1)
-User.create!(student_id: student1)
-User.create!(teacher_id: teacher2)
-User.create!(student_id: student2)
-
-
+# Adding students to courses
+courses.each do |course|
+  students.sample(5).each do |student|
+    course.student_id = student.id
+    course.save
+  end
+end
   
   puts "Done seeding!"
