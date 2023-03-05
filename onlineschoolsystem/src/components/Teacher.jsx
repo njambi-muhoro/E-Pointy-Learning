@@ -1,6 +1,13 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
+
 
 function Teacher() {
+  const location = useLocation();
+  const name = location.state?.name;
+  
+
+  const[courses,setCourses] = useState([])
   const [selectedCourse, setSelectedCourse] = useState("");
   const [description, setDescription] = useState("");
   const [videos_link, setVideoLink] = useState("");
@@ -29,34 +36,67 @@ function Teacher() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const newCourse = {
-      course: selectedCourse,
-      description: description,
-      videos_link: videos_link,
-      subtopic: subtopic,
-      teachersname: teacherName,
-    };
-
-    fetch("http://localhost:9292/courses", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newCourse),
-    })
+  
+    // Fetch the list of all teachers from the server
+    fetch("http://localhost:9292/teachers")
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((teachers) => {
+        // Find the teacher with the matching name
+        const teacher = teachers.find((t) => t.name === teacherName);
+  
+        if (!teacher) {
+          console.log("Error: Teacher not found");
+          return;
+        }
+  
+        // Add the teacher_id to the newCourse object
+        const newCourse = {
+          course: selectedCourse,
+          description: description,
+          videos_link: videos_link,
+          subtopic: subtopic,
+          teacher_id: teacher.id, // <-- Add the teacher_id here
+        };
+  
+        // Send the POST request to create the new course
+        fetch("http://localhost:9292/courses", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newCourse),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            // Append the new course to the TeachersCard component
+            const { course, description, videos_link, subtopic, teacher_id } = data;
+            const newCourse = {
+              selectedCourse: course,
+              description: description,
+              videos_link: videos_link,
+              subtopic: subtopic,
+              teacher_id: teacher_id,
+            };
+            setCourses([...courses, newCourse]);
+          })
+          .catch((error) => console.log(error));
+  
+        // Clear the form fields
+        setSelectedCourse("");
+        setDescription("");
+        setVideoLink("");
+        setSubtopic("");
+        setTeacherName("");
+      })
       .catch((error) => console.log(error));
-
-    setSelectedCourse("");
-    setDescription("");
-    setVideoLink("");
-    setSubtopic("");
-    setTeacherName("");
   };
-
+  
+  
+  if (!name) {
+    return <div>Error: Please log in first</div>;
+  }
   return (
+    <div>
     <div className="container">
       <h1 className="text-center my-5">Add a New Course</h1>
       <form onSubmit={handleSubmit}>
@@ -119,6 +159,8 @@ function Teacher() {
                     submit
                     </button>
           </form>
+        </div>
+        
         </div>
      
   );

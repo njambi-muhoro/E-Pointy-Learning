@@ -26,6 +26,32 @@ function SignUp({ teachersignup, studentsignup }) {
 
   const navigate = useNavigate();
 
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  
+  //   const newUser = {
+  //     name: name,
+  //     password: password,
+  //     email: email,
+  //     userType: userType,
+  //   };
+  
+  //   fetch('http://localhost:9292/users', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(newUser),
+  //   })
+  //     .then(response => {
+  //       if (userType === "teacher") {
+  //         navigate("/login");
+  //       } else if (userType === "student") {
+  //         navigate("/login");
+  //       }
+  //     })
+  //     .catch(error => console.log(error));
+  // };
   const handleSubmit = (event) => {
     event.preventDefault();
   
@@ -33,10 +59,11 @@ function SignUp({ teachersignup, studentsignup }) {
       name: name,
       password: password,
       email: email,
-      userType: userType,
     };
   
-    fetch('http://localhost:9292/users', {
+    const apiEndpoint = userType === "teacher" ? "http://localhost:9292/teachers" : "http://localhost:9292/students";
+  
+    fetch(apiEndpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,10 +71,10 @@ function SignUp({ teachersignup, studentsignup }) {
       body: JSON.stringify(newUser),
     })
       .then(response => {
-        if (userType === "teacher") {
+        if (response.ok) {
           navigate("/login");
-        } else if (userType === "student") {
-          navigate("/login");
+        } else {
+          // Handle error response
         }
       })
       .catch(error => console.log(error));

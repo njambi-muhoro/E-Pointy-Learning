@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
+import ImageFaker from "./ImageFaker";
 
 import ReactPlayer from "react-player/youtube";
 
 function FetchCourses(props) {
+
+
+
+
+
   const [onlineCourses, setCourses] = useState([]);
 
   const [searchValue, setSearchValue] = useState("");
@@ -53,18 +59,31 @@ function FetchCourses(props) {
           <div
             key={course.id}
             className="col-lg-3 col-md-6 col-sm-12 mb-3"
-            onClick={() => props.onCourseSelect(course)}
+            onClick={() => {
+              fetch("http://localhost:9292/courses/" + course.id, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  studentName: props.studentName,
+                }),
+              })
+                .then((response) => response.json())
+                .then((data) => console.log(data))
+                .catch((error) => console.log(error));
+            }}
+            
           >
             <div className="card">
-              <div className="card-image"></div>
+              <div className="card-image">
+              <ImageFaker/>
+              </div>
               <div className="category">
-                <ReactPlayer
-                  url={course.videos_link}
-                  playing={false}
-                  volume={0.5}
-                  width="100%"
-                  height="100%"
-                />
+                
+                  Video LInk:{course.videos_link}
+                 
+            
               </div>
               <div className="heading video-wrapper">
                 {course.title} - {course.subtopic}

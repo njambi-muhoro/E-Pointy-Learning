@@ -27,9 +27,9 @@ function Login() {
         if (matchingUsers.length > 0) {
           setLoggedIn(true);
           if (userType === "teacher") {
-            navigate("/teachers");
+            navigate("/teachers", { state: { name } });
           } else if (userType === "student") {
-            navigate("/students");
+            navigate("/students", { state: { name } });
           }
         } else {
           alert("Invalid login details");

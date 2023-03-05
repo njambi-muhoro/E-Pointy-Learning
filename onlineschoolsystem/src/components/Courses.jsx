@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import FetchCourses from "./FetchCourses";
-import Student from "./Student";
+
 import Time from "./Time";
 
 function Courses() {
-  const [selectedCourses, setSelectedCourses] = useState([]);
-
-  const handleCourseSelect = (course) => {
-    setSelectedCourses((prevSelectedCourses) => [...prevSelectedCourses, course]);
-  };
-
+ 
   return (
     <div
       style={{
@@ -24,8 +19,8 @@ function Courses() {
         <Time />
         <h1 style={{ fontSize: "30px" }}>SUBJECTS</h1>
       </div>
-      <FetchCourses onCourseSelect={handleCourseSelect} />
-      <Student courses={selectedCourses} />
+      <FetchCourses  />
+     
     </div>
   );
 }
