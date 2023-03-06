@@ -1,5 +1,5 @@
 README
-#### Description
+# Description
 This is a RESTful API for a course management system. The API allows users to create, read, update, and delete courses, students, teachers, and users.
 
 ### Installation
@@ -9,9 +9,9 @@ Clone the repository to your local machine.
 Run bundle install to install all required dependencies.
 Run rake db:migrate to migrate the database schema.
 Start the server with rackup.
-Usage
 
 
+ ## Usage
 ### API Endpoints
 The following API endpoints are available:
 
@@ -58,7 +58,7 @@ Returns a list of all users.
 POST /users
 Creates a new user.
 
-Example Requests
+#### Example Requests
 Create a new course
 json
 Copy code
@@ -68,35 +68,45 @@ Copy code
   "student_ids": [1, 2, 3]
 }
 ## React-based E-learning Platform
-Pointy is a React-based E-learning platform designed to provide online courses to students on various topics. Users can log in or sign up to the platform as students or teachers.
+This project is a course management system built with React and Sinatra, where students can view their enrolled courses and teachers can add new courses to the system.
 
-### Components
-The following components are used in the application:
+### Installation and Setup
+Clone the repository to your local machine.
+bash
+Copy code
+git clone https://github.com/njambi-muhoro/E-Pointy-Learning.git
+Change into the project directory.
+bash
+Copy code
+cd course-management-system
+Install the required dependencies.
+Copy code
+npm install
+Start the React development server.
+sql
+Copy code
+npm start
+In a new terminal window, start the Sinatra server.
+Copy code
+ruby app.rb
+Open the application in your browser at http://localhost:3001.
+Usage
+#### As a student
+Log in with your name on the homepage.
 
-NavBar: renders a navigation bar with links to different pages and a dropdown to select the user type. It also handles the logout functionality.
-Student: displays a list of favorite courses of a student.
-Teacher: displays a list of courses being taught by a teacher.
-Courses: displays a list of courses available on the platform. Students can mark courses as favorites, which is saved in the local storage.
-Home: displays the home page of the application.
-Login: provides a form for the user to log in with their email and password.
-SignUp: provides a form for the user to sign up with their email, password, and name.
+You will be redirected to a page showing your enrolled courses.
 
-### State Management
-The following hooks are used for state management:
+#### As a teacher
+Log in with your name on the homepage.
 
-useState: to manage state variables userType, email, password, name, loggedIn.
-useEffect: to save and retrieve the list of favorite courses to/from the local storage.
-useNavigate: to programmatically navigate to a different page.
-Routes
-The Routes component is used to define the different pages of the application:
+You will be redirected to a page where you can add a new course to the system.
 
-/: renders the Home component.
-/courses: renders the Courses component.
-/students: renders the Student component.
-/teachers: renders the Teacher component.
-/login: renders the Login component.
-/signup: renders the SignUp component.
-The Route component is used to map the URL path to a specific component.
+Fill out the form and click "Submit".
 
-### Other Features
-The NavBar component also includes a dropdown menu that allows the user to select their user type (i.e., "student" or "teacher"). Based on the selected user type and the `loggedIn
+Your new course will be added to the system and displayed on the homepage for all students to see.
+
+### Contributing
+Contributions are welcome. To contribute, please fork the repository, create a new branch, and submit a pull request.
+
+License
+This project is licensed under the MIT License.
